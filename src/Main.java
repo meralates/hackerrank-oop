@@ -1,15 +1,15 @@
 import java.util.*;
 //https://www.hackerrank.com/challenges/java-abstract-class/problem?isFullScreen=true
-abstract class Book {
+abstract class Book {//soyut sınıf
     String title;
-    abstract void setTitle(String s);
+
+    abstract void setTitle(String s);//türeyen sınıflar bunu kullanmak zorunda
     String getTitle() {
         return title;
     }
 }
 
 class MyBook extends Book {
-    // Implementing the abstract method
     @Override
     void setTitle(String s) {
         this.title = s;
