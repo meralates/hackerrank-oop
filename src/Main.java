@@ -1,30 +1,34 @@
 import java.util.*;
-//https://www.hackerrank.com/challenges/java-abstract-class/problem?isFullScreen=true
-abstract class Book {//soyut sınıf
-    String title;
-
-    abstract void setTitle(String s);//türeyen sınıflar bunu kullanmak zorunda
-    String getTitle() {
-        return title;
-    }
-}
-
-class MyBook extends Book {
-    @Override
-    void setTitle(String s) {
-        this.title = s;
-    }
-}
+//https://www.hackerrank.com/challenges/java-iterator/problem?isFullScreen=true
 public class Main {
+    static Iterator func(ArrayList myList){
+        Iterator it = myList.iterator(); //Iterator nesnesi sayesinde listedeki elemanlara sırasıyla erişebiliriz
+        while(it.hasNext()){ //metod listedeki bir sonraki elemana geçip geçemeyeceğimizi kontrol eder
+            Object element = it.next();
+            if(element instanceof String && element.equals("###")){
+                break;
+            }
+        }
+        return it;
+    }
+    @SuppressWarnings({"unhecked"})
     public static void main(String[] args) {
+        ArrayList myList = new ArrayList();
         Scanner sc = new Scanner(System.in);
-        String title = sc.nextLine();
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
-        MyBook new_novel = new MyBook();
-        new_novel.setTitle(title);
-
-        System.out.println("The title is: " + new_novel.getTitle());
-
-        sc.close();
+        for(int i = 0; i < n; i++){
+            myList.add(sc.nextInt());
+        }
+        myList.add("###"); //Listeye "###" ekler listeyi iki bölüme ayırmak için
+        for (int i = 0; i < m; i++){
+            myList.add(sc.next());
+        }
+        Iterator it = func(myList);
+        while (it.hasNext()) {
+            Object element = it.next();
+            System.out.println((String) element);
+        }
     }
 }
