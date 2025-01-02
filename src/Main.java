@@ -15,3 +15,8 @@ class MotorCylce extends BiCylce{
             System.out.println("My ancestor is a cycle who is "+temp);
     }
 }
+class Main {
+    public static void main(String[] args) {
+        MotorCylce M = new MotorCylce();
+    }
+}
