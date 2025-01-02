@@ -20,3 +20,6 @@ class Main {
         MotorCylce M = new MotorCylce();
     }
 }
+class BasicCheck{
+    //check basic
+}
